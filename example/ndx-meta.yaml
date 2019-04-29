@@ -1,0 +1,7 @@
+name: my_namespace
+version: 0.1.0
+src: 
+pip:
+license: BSD
+maintainers:
+  - rly
