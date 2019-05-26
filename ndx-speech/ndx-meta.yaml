@@ -1,0 +1,7 @@
+name: ndx-speech
+version: 0.1.0
+src: https://github.com/bendichter/ndx-speech.git
+pip: https://pypi.org/project/ndx-speech/
+license: BSD
+maintainers:
+  - bendichter
