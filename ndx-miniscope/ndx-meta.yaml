@@ -1,0 +1,7 @@
+name: ndx-miniscope
+version: 0.1.0
+src: https://github.com/bendichter/ndx-miniscope.git
+pip: https://pypi.org/project/ndx-miniscope/
+license: BSD
+maintainers:
+  - bendichter
