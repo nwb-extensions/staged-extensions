@@ -32,15 +32,15 @@ with information on where to find your NWB extension.
       usernames of those who will reliably maintain the extension
       
     - For example, your YAML file should look something like this:
-    ```yaml
-    name: ndx-miniscope
-    version: 0.1.0
-    src: https://github.com/bendichter/ndx-miniscope
-    pip: https://pypi.org/project/ndx-miniscope/
-    license: BSD
-    maintainers:
-      - bendichter
-    ```
+        ```yaml
+        name: ndx-miniscope
+        version: 0.1.0
+        src: https://github.com/bendichter/ndx-miniscope
+        pip: https://pypi.org/project/ndx-miniscope/
+        license: BSD
+        maintainers:
+          - bendichter
+        ```
 
 4. Edit `staged-extensions/<your-extension-name>/README.md`
 to add information about your extension.
