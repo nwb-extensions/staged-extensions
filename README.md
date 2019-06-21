@@ -65,11 +65,12 @@ and provide feedback and request changes, if any.
 `<your-extension-name>-feedstock` will be created in the [nwb-extensions
 GitHub organization](https://github.com/nwb-extensions) with your 
 modified `ndx-meta.yaml` and `README.md` files, 
-and you will be added as a maintainer for that repository. This new repo
-is the catalog entry for your extension. Please keep it up-to-date as you
+and you will be added as a maintainer for that repository. 
+
+  This new repo is the NDX Catalog entry for your extension. Please keep it up-to-date as you
 develop your extension and publish new versions. 
 
-## Behind the Scenes
+## Behind the scenes
 
 See https://github.com/nwb-extensions/nwb-extensions-smithy for more information
 about the automation scripts that run on top of this repo.
