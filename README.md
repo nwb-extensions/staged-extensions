@@ -63,4 +63,6 @@ and provide feedback and request changes, if any.
 `<your-extension-name>-feedstock` will be created in the [nwb-extensions
 GitHub organization](https://github.com/nwb-extensions) with your 
 modified `ndx-meta.yaml` and `README.md` files, 
-and you will be added as a maintainer for that repository.
+and you will be added as a maintainer for that repository. This new repo
+is the catalog entry for your extension. Please keep it up-to-date as you
+develop your extension and publish new versions. 
