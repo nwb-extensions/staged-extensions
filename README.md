@@ -5,16 +5,20 @@ https://github.com/nwb-extensions/nwb-extensions-smithy.
 
 ## Getting started
 
-1. Fork this repository.
+1. [Fork](https://help.github.com/en/articles/fork-a-repo) this repository.
 
 2. Clone your fork to your local filesystem.
+
+    ```bash
+    git clone https://github.com/<your-github-username>/staged-extensions.git
+    ```
 
 2. Copy the directory `staged-extensions/example` to a new directory
 with the name of your extension.
 
-  ```bash
-cp -r staged-extensions/example staged-extensions/<your-extension-name>
-```
+    ```bash
+    cp -r staged-extensions/example staged-extensions/<your-extension-name>
+    ```
 
 3. Edit `staged-extensions/<your-extension-name>/ndx-meta.yaml`
 with information on where to find your NWB extension.
@@ -32,7 +36,15 @@ to add information about your extension.
 
 5. Commit and push your changes to GitHub. 
 
-5. Open a pull request for your changes. Building of your extension will be tested on Windows,
+    ```bash
+    git add .
+    git commit -m "Created new extension"
+    git push origin master
+    ```
+
+5. [Create a pull request](https://help.github.com/en/articles/creating-a-pull-request) for your changes. 
+
+    Building of your extension will be tested on Windows,
 Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
