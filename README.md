@@ -60,5 +60,5 @@ Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
 6. When your pull request is merged, a new repository, called
-<your-extension-name>-feedstock will be created in the nwb-extensions
-GitHub organization, and you will be added as a maintainer for that repository.
+`<your-extension-name>-feedstock` will be created in the nwb-extensions
+GitHub organization with the contents of `https://github.com/<your-github-username>/staged-extensions/<your-extension-name>`, and you will be added as a maintainer for that repository.
