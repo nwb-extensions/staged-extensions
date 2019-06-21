@@ -24,12 +24,23 @@ with the name of your extension.
 with information on where to find your NWB extension.
     - The YAML file MUST contain a dict with the following keys:
       - `name` - The name of the extension
-      - `version` - Version number of your extension, e.g. 0.1.0
-      - `src` - URL to the public repository with the sources of the extension, e.g. `https://github.com/bendichter/ndx-miniscope`
-      - `pip` - URL for installing the extensions from PyPI, e.g. `https://pypi.org/project/ndx-miniscope`
-      - `license` - name of the license of the extension, e.g. BSD-3-Clause
+      - `version` - Version number of your extension
+      - `src` - URL to the public repository with the sources of the extension
+      - `pip` - URL for installing the extensions from PyPI
+      - `license` - name of the license of the extension
       - `maintainers` - list of GitHub
       usernames of those who will reliably maintain the extension
+      
+    - For example, your YAML file should look something like this:
+    ```yaml
+    name: ndx-miniscope
+    version: 0.1.0
+    src: https://github.com/bendichter/ndx-miniscope
+    pip: https://pypi.org/project/ndx-miniscope/
+    license: BSD
+    maintainers:
+      - bendichter
+    ```
 
 4. Edit `staged-extensions/<your-extension-name>/README.md`
 to add information about your extension.
