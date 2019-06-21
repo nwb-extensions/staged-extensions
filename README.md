@@ -1,6 +1,6 @@
 ## About
 This repo is a holding area for NWB:N extensions destined to be a registered, public 
-extension. After an NWB:N extensions is approved, a new repo will be created in the 
+extension. After an NWB:N extension is approved, a new repo is created in the 
 [nwb-extensions organization](https://github.com/nwb-extensions) with a catalog
 entry for the extension.
 
