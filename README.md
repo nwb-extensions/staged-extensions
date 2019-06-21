@@ -1,7 +1,8 @@
 ## About
 This repo is a holding area for NWB:N extensions destined to be a registered, public 
-extension. To find out more about conda-forge, see 
-https://github.com/nwb-extensions/nwb-extensions-smithy.
+extension. After an NWB:N extensions is approved, a new repo will be created in the 
+[nwb-extensions organization](https://github.com/nwb-extensions) with a catalog
+entry for the extension.
 
 ## Getting started
 
@@ -66,3 +67,8 @@ modified `ndx-meta.yaml` and `README.md` files,
 and you will be added as a maintainer for that repository. This new repo
 is the catalog entry for your extension. Please keep it up-to-date as you
 develop your extension and publish new versions. 
+
+## Behind the Scenes
+
+See https://github.com/nwb-extensions/nwb-extensions-smithy for more information
+about the automation scripts that run on top of this repo.
