@@ -25,8 +25,8 @@ with information on where to find your NWB extension.
     - The YAML file MUST contain a dict with the following keys:
       - `name` - The name of the extension
       - `version` - Version number of your extension, e.g. 0.1.0
-      - `src` - URL to the public repository with the sources of the extension, e.g. https://github.com/bendichter/ndx-miniscope
-      - `pip` - URL for installing the extensions from PyPI, e.g. https://pypi.org/project/ndx-miniscope/
+      - `src` - URL to the public repository with the sources of the extension, e.g. `https://github.com/bendichter/ndx-miniscope`
+      - `pip` - URL for installing the extensions from PyPI, e.g. `https://pypi.org/project/ndx-miniscope`
       - `license` - name of the license of the extension, e.g. BSD-3-Clause
       - `maintainers` - list of GitHub
       usernames of those who will reliably maintain the extension
