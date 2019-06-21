@@ -49,6 +49,7 @@ to add information about your extension.
 5. Commit and push your changes to GitHub. 
 
     ```bash
+    cd staged-extensions
     git add .
     git commit -m "Created new extension"
     git push origin master
