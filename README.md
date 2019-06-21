@@ -67,7 +67,7 @@ GitHub organization](https://github.com/nwb-extensions) with your
 modified `ndx-meta.yaml` and `README.md` files, 
 and you will be added as a maintainer for that repository. 
 
-  This new repo is the NDX Catalog entry for your extension. Please keep it up-to-date as you
+    This new repo is the NDX Catalog entry for your extension. Please keep it up-to-date as you
 develop your extension and publish new versions. 
 
 ## Behind the scenes
