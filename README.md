@@ -60,6 +60,7 @@ Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
 6. When your pull request is merged, a new repository, called
-`<your-extension-name>-feedstock` will be created in the nwb-extensions
-GitHub organization with your modified `ndx-meta.yaml` and `README.md` files, 
+`<your-extension-name>-feedstock` will be created in the [nwb-extensions
+GitHub organization](https://github.com/nwb-extensions) with your 
+modified `ndx-meta.yaml` and `README.md` files, 
 and you will be added as a maintainer for that repository.
