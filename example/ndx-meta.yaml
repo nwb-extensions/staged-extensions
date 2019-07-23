@@ -1,7 +1,8 @@
-name: my_namespace
-version: 0.1.0
-src: 
-pip:
+name: ndx-miniscope
+version: 0.2.2
+src: https://github.com/bendichter/ndx-miniscope
+pip: https://pypi.org/project/ndx-miniscope/
 license: BSD
 maintainers:
-  - rly
+  - bendichter
+
