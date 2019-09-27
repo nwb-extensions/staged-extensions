@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- checkout: self
+  submodules: true
+
+- task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.7'
+      architecture: 'x64'
+
+- script: |
+    python -m pip install --upgrade pip
+    python -m pip install --upgrade -r requirements.txt -r requirements-dev.txt
+  displayName: 'Install build dependencies'
+
+- bash: |
+    git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
+    cd nwb-extensions-smithy
+    python -m pip install --upgrade -r requirements.txt
+    python setup.py install
+    nwb-extensions-smithy init example./
+    nwb-extensions-smithy register-github --add-teams ./
+  displayName: 'Create catalog record repo and add to GitHub'
