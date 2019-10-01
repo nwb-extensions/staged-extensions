@@ -25,7 +25,7 @@ steps:
 
 - bash: |
     python -m pip install --upgrade pip
-    conda update conda
+    conda update -y conda
     # python -m pip install --upgrade -r requirements.txt
   displayName: Install build dependencies
 
