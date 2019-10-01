@@ -38,8 +38,8 @@ steps:
   displayName: Install nwb-extensions-smithy
   
 - bash: |
-    mkdir .nwb-extensions-smithy
-    echo $GITHUB_TOKEN > .nwb-extensions-smithy/github.token
+    mkdir ~/.nwb-extensions-smithy
+    echo $GITHUB_TOKEN > ~/.nwb-extensions-smithy/github.token
   displayName: Set GitHub token
   
 - bash: |
