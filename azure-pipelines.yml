@@ -43,7 +43,7 @@ steps:
   displayName: Set GitHub token
   
 - bash: |
-    more ~/.nwb-extensions-smithy/github.token
+    cat ~/.nwb-extensions-smithy/github.token
     nwb-extensions-smithy init ./example
     nwb-extensions-smithy register-github --add-teams ./
   displayName: Create catalog record repo and add to GitHub
