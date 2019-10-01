@@ -39,7 +39,7 @@ steps:
   
 - bash: |
     mkdir .nwb-extensions-smithy
-    cat $GITHUB_TOKEN > .nwb-extensions-smithy/github.token
+    echo $GITHUB_TOKEN > .nwb-extensions-smithy/github.token
   displayName: Set GitHub token
   
 - bash: |
