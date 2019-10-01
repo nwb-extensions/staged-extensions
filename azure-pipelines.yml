@@ -38,6 +38,11 @@ steps:
   displayName: Install nwb-extensions-smithy
   
 - bash: |
+    mkdir .nwb-extensions-smithy
+    cat $GITHUB_TOKEN > .nwb-extensions-smithy/github.token
+  displayName: Set GitHub token
+  
+- bash: |
     nwb-extensions-smithy init ./example ./
     nwb-extensions-smithy register-github --add-teams ./
   displayName: Create catalog record repo and add to GitHub
