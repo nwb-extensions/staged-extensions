@@ -39,12 +39,10 @@ steps:
   
 - bash: |
     mkdir ~/.nwb-extensions-smithy
-    echo $(GITHUB_TOKEN)
     echo $(GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token
   displayName: Set GitHub token
   
 - bash: |
-    cat ~/.nwb-extensions-smithy/github.token
     nwb-extensions-smithy init ./example
     nwb-extensions-smithy register-github --add-teams ./
   displayName: Create catalog record repo and add to GitHub
