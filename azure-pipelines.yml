@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -45,6 +40,5 @@ steps:
   displayName: Setup Git and GitHub token
   
 - bash: |
-    nwb-extensions-smithy init ./example
-    nwb-extensions-smithy register-github --add-teams ./
+    nwb-extensions-smithy init --register-github ./example
   displayName: Create catalog record repo and add to GitHub
