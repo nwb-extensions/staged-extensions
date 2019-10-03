@@ -17,7 +17,7 @@ steps:
 - task: DownloadSecureFile@1
   name: ssh_key
   inputs:
-    secureFile: 'id_rsa'
+    secureFile: 'id_rsa2'
 
 - task: InstallSSHKey@0
   inputs:
