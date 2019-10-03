@@ -40,7 +40,9 @@ steps:
 - bash: |
     mkdir ~/.nwb-extensions-smithy
     echo $(GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token
-  displayName: Set GitHub token
+    git config --global user.email "nwb-extensions-bot@gmail.com"
+    git config --global user.name "NWB Extensions Bot"
+  displayName: Setup Git and GitHub token
   
 - bash: |
     nwb-extensions-smithy init ./example
