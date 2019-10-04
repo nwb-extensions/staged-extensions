@@ -45,7 +45,7 @@ steps:
   
 - bash: |
     mkdir ~/.nwb-extensions-smithy
-    cp $(github_token) > ~/.nwb-extensions-smithy/github.token
+    cp $(github_token.secureFilePath) > ~/.nwb-extensions-smithy/github.token
     git config --global user.email "nwb-extensions-bot@gmail.com"
     git config --global user.name "NWB Extensions Bot"
   displayName: Setup Git and GitHub token
