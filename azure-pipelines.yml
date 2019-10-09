@@ -14,11 +14,6 @@ steps:
     versionSpec: '3.7'
     architecture: 'x64'
 
-- task: DownloadSecureFile@1
-  name: github_token
-  inputs:
-    secureFile: 'github.token'
-
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
@@ -45,11 +40,15 @@ steps:
   
 - bash: |
     mkdir ~/.nwb-extensions-smithy
-    cp $(github_token.secureFilePath) ~/.nwb-extensions-smithy/github.token
+    echo $(GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token
     git config --global user.email "nwb-extensions-bot@gmail.com"
     git config --global user.name "NWB Extensions Bot"
   displayName: Setup Git and GitHub token
   
 - bash: |
-    smithy_init_all
-  displayName: Create catalog record repo for all staged extensions in repo and push new repo to GitHub
+    # smithy_init_all
+    git checkout master
+    echo "test" > test.txt
+    git commit -am "test"
+    git push https://$(GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
+  displayName: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
