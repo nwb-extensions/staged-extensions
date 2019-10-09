@@ -1,0 +1,57 @@
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+
+- checkout: self
+  submodules: true
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.7'
+    architecture: 'x64'
+
+- task: InstallSSHKey@0
+  inputs:
+    knownHostsEntry: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
+    sshPublicKey: $(SSH_PUB_KEY)
+    sshKeySecureFile: id_rsa
+
+- bash: |
+    echo "##vso[task.prependpath]$CONDA/bin"
+  displayName: Add conda to PATH
+
+- bash: |
+    python -m pip install --upgrade pip
+    conda update -y conda
+    # python -m pip install --upgrade -r requirements.txt
+  displayName: Install build dependencies
+
+- bash: |
+    git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
+    cd nwb-extensions-smithy
+    python -m pip install --upgrade -r requirements.txt
+    conda install -y -c conda-forge vsts-python-api conda-build
+    python setup.py install
+  displayName: Install nwb-extensions-smithy
+  
+- bash: |
+    mkdir ~/.nwb-extensions-smithy
+    echo $(GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token
+    git config --global user.email "nwb-extensions-bot@gmail.com"
+    git config --global user.name "NWB Extensions Bot"
+  displayName: Setup Git and GitHub token
+  
+- bash: |
+    git checkout master
+    smithy_init_all
+    git push https://$(GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
+  displayName: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
