@@ -46,10 +46,7 @@ steps:
   displayName: Setup Git and GitHub token
   
 - bash: |
-    # smithy_init_all
     git checkout master
-    echo "test" > test.txt
-    git add .
-    git commit -a -m "test"
+    smithy_init_all
     git push https://$(GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
   displayName: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
