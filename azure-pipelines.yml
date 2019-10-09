@@ -51,5 +51,5 @@ steps:
   displayName: Setup Git and GitHub token
   
 - bash: |
-    ./smithy_init_all.sh
+    smithy_init_all
   displayName: Create catalog record repo for all staged extensions in repo and push new repo to GitHub
