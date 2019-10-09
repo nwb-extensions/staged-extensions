@@ -4,5 +4,5 @@ src: https://github.com/bendichter/ndx-miniscope
 pip: https://pypi.org/project/ndx-miniscope/
 license: BSD
 maintainers:
-  - bendichter
+  - rly
 
