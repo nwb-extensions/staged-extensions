@@ -1,5 +1,10 @@
 trigger:
-- master
+  batch: true
+  branches:
+    include:
+    - master
+
+pr: none
 
 pool:
   vmImage: 'ubuntu-latest'
