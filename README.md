@@ -24,13 +24,13 @@ with the name of your extension.
 3. Edit `staged-extensions/<your-extension-name>/ndx-meta.yaml`
 with information on where to find your NWB extension.
     - The YAML file MUST contain a dictionary with the following keys:
-      - `name` - The name of the extension
-      - `version` - Version number of your extension
-      - `src` - URL to the public repository with the sources of the extension
-      - `pip` - URL for installing the extensions from PyPI
+      - `name` - name of the extension
+      - `version` - version number of the extension
+      - `src` - URL of the public Git repository with the sources of the extension
+      - `pip` - URL of the package on PyPI of the extennsion
       - `license` - name of the license of the extension
       - `maintainers` - list of GitHub
-      usernames of those who will reliably maintain the extension
+      usernames of people who will reliably maintain the extension
       
     - For example, your YAML file should look something like this:
         ```yaml
