@@ -66,12 +66,12 @@ provide feedback, and request changes, if needed.
 GitHub organization](https://github.com/nwb-extensions) with your 
 extension's `ndx-meta.yaml` and `README.md` files. You will be added as a maintainer for that repository. 
 
-    This new repo is the NDX Catalog record for your extension. It will be used to guide other users
+    This new repo is the NDX Catalog entry for your extension. It will be used to guide other users
 to the location of your extension and what is the latest approved version, similar to a card in a card
-catalog in early libraries. Please keep this record repo up-to-date as you develop your extension
+catalog in early libraries. Please keep this repo up-to-date as you develop your extension
 and publish new versions. 
 
 ## Behind the scenes
 
-See https://github.com/nwb-extensions/nwb-extensions-smithy for more information
+See [nwb-extensions-smithy](https://github.com/nwb-extensions/nwb-extensions-smithy) for more information
 about the automation scripts that run behind the scenes.
