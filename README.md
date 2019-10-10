@@ -62,13 +62,15 @@ Mac, and Linux. The technical team will review your extension shortly after
 and provide feedback and request changes, if any.
 
 6. When your pull request is merged, a new repository, called
-`<your-extension-name>-feedstock` will be created in the [nwb-extensions
+`<your-extension-name>-record` will be created in the [nwb-extensions
 GitHub organization](https://github.com/nwb-extensions) with your 
-modified `ndx-meta.yaml` and `README.md` files, 
+extension's `ndx-meta.yaml` and `README.md` files, 
 and you will be added as a maintainer for that repository. 
 
-    This new repo is the NDX Catalog entry for your extension. Please keep it up-to-date as you
-develop your extension and publish new versions. 
+    This new repo is the NDX Catalog record for your extension. It will be used to guide other users
+to the location of your extension and what is the latest approved version, similar to a card in a card
+catalog in early libraries. Please keep this record repo up-to-date as you develop your extension
+and publish new versions. 
 
 ## Behind the scenes
 
