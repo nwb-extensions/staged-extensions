@@ -6,6 +6,9 @@ entry for the extension.
 
 ## Getting started
 
+To stage an extension, you need to have a GitHub account and git installed on your
+local machine. 
+
 1. [Fork](https://help.github.com/en/articles/fork-a-repo) this repository.
 
 2. Clone your fork to your local filesystem.
@@ -27,7 +30,7 @@ with information on where to find your NWB extension.
       - `name` - name of the extension
       - `version` - version number of the extension
       - `src` - URL of the public Git repository with the sources of the extension
-      - `pip` - URL of the package on PyPI of the extennsion
+      - `pip` - URL of the package on PyPI of the extension
       - `license` - name of the license of the extension
       - `maintainers` - list of GitHub
       usernames of people who will reliably maintain the extension
@@ -46,7 +49,7 @@ with information on where to find your NWB extension.
 4. Edit `staged-extensions/<your-extension-name>/README.md`
 to add information about your extension.
 
-5. Commit and push your changes to GitHub. 
+5. Add and commit your changes locally and push your changes to GitHub. 
 
     ```bash
     cd staged-extensions
