@@ -23,7 +23,7 @@ with the name of your extension.
 
 3. Edit `staged-extensions/<your-extension-name>/ndx-meta.yaml`
 with information on where to find your NWB extension.
-    - The YAML file MUST contain a dict with the following keys:
+    - The YAML file MUST contain a dictionary with the following keys:
       - `name` - The name of the extension
       - `version` - Version number of your extension
       - `src` - URL to the public repository with the sources of the extension
@@ -58,14 +58,13 @@ to add information about your extension.
 5. [Create a pull request](https://help.github.com/en/articles/creating-a-pull-request) for your changes. 
 
     Building of your extension will be tested on Windows,
-Mac, and Linux. The technical team will review your extension shortly after
-and provide feedback and request changes, if any.
+Mac, and Linux. The technical team will review your extension shortly after, 
+provide feedback, and request changes, if needed.
 
 6. When your pull request is merged, a new repository, called
 `<your-extension-name>-record` will be created in the [nwb-extensions
 GitHub organization](https://github.com/nwb-extensions) with your 
-extension's `ndx-meta.yaml` and `README.md` files, 
-and you will be added as a maintainer for that repository. 
+extension's `ndx-meta.yaml` and `README.md` files. You will be added as a maintainer for that repository. 
 
     This new repo is the NDX Catalog record for your extension. It will be used to guide other users
 to the location of your extension and what is the latest approved version, similar to a card in a card
@@ -75,4 +74,4 @@ and publish new versions.
 ## Behind the scenes
 
 See https://github.com/nwb-extensions/nwb-extensions-smithy for more information
-about the automation scripts that run on top of this repo.
+about the automation scripts that run behind the scenes.
