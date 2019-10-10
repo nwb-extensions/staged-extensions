@@ -1,13 +1,12 @@
 ## About
-This repo is a holding area for NWB:N extensions destined to be a registered, public 
-extension. After an NWB:N extension is approved, a new repo is created in the 
-[nwb-extensions organization](https://github.com/nwb-extensions) with a catalog
-entry for the extension.
+This repo is a holding area for NWB extensions destined to be a registered, public 
+extension. After an NWB extension is approved, a new repo is created in the official
+[NDX Catalog](https://github.com/nwb-extensions).
 
 ## Getting started
 
-To stage an extension, you need to have a GitHub account and git installed on your
-local machine. 
+To register an extension, you need to have a GitHub account and git installed on your
+local machine.
 
 1. [Fork](https://help.github.com/en/articles/fork-a-repo) this repository.
 
