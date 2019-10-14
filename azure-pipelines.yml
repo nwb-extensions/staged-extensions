@@ -30,7 +30,7 @@ steps:
   displayName: Add conda to PATH
 
 - bash: |
-    python -m pip install --upgrade pip
+    # python -m pip install --upgrade pip
     conda update -y conda
     # python -m pip install --upgrade -r requirements.txt
   displayName: Install build dependencies
