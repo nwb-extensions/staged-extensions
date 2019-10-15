@@ -1,0 +1,8 @@
+name: ndx-ecog
+version: 0.1.0
+src: https://github.com/ben-dichter-consulting/ndx-ecog
+pip: https://pypi.org/project/ndx-ecog/
+license: BSD
+maintainers:
+  - bendichter
+
