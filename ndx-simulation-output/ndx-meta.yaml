@@ -1,7 +1,0 @@
-name: ndx-simulation-output
-version: 0.2.5
-src: https://github.com/bendichter/ndx-simulation-output
-pip: https://pypi.org/project/ndx-simulation-output
-license: BSD
-maintainers:
-  - bendichter
