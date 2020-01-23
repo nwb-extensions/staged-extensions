@@ -1,7 +1,12 @@
 # ndx-fret
-NWB extension for storing Fluorescence Resonance Energy Transfer (FRET) experimental data
-
 [![PyPI version](https://badge.fury.io/py/ndx-fret.svg)](https://badge.fury.io/py/ndx-fret)
+
+NWB extension for storing Fluorescence Resonance Energy Transfer (FRET) experimental data.
+A collaboration with [Jaeger Lab](https://scholarblogs.emory.edu/jaegerlab/), [Emory University](https://www.emory.edu/home/index.html) and [The Kavli Foundation](https://www.kavlifoundation.org/).
+
+<p align="center">
+<img src="media/FRET_schematic.png" width="400">
+</p>
 
 ### Python Installation
 ```bash
