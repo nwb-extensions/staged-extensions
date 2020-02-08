@@ -1,7 +1,0 @@
-name: ndx-icephys-meta
-version: 0.1.0
-src: https://github.com/oruebel/ndx-icephys-meta
-pip: https://pypi.org/project/ndx-icephys-meta/
-license: BSD 3-Clause
-maintainers:
-  - oruebel
