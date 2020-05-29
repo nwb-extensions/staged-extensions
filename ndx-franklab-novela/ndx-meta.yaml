@@ -1,0 +1,8 @@
+name: ndx-franklab-novela
+version: 0.0.4
+src: https://github.com/NovelaDevops/ndx-franklab-novela
+pip: None
+conda: https://anaconda.org/novelakrk/ndx-franklab-novela
+license: BSD 3-Clause
+maintainers:
+  - NovelaNeuro
