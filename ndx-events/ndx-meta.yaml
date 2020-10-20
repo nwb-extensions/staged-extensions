@@ -1,0 +1,8 @@
+name: ndx-events
+version: 0.2.0
+src: https://github.com/rly/ndx-events
+pip: https://pypi.org/project/ndx-events/
+license: BSD
+maintainers:
+  - rly
+
