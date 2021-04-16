@@ -1,0 +1,7 @@
+name: ndx-tan-lab-mesh-attributes
+version: 0.1.0
+src: https://github.com/MarikeReimer/ndx-tan-lab-mesh-attributes
+pip: https://pypi.org/project/ndx-tan-lab-mesh-attributes/
+license: BSD 3-Clause
+maintainers: 
+  - MarikeReimer
