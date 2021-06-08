@@ -19,6 +19,12 @@ steps:
     versionSpec: '3.7'
     architecture: 'x64'
 
+- bash: |
+    python -m virtualenv ../venv || python -m venv ../venv
+    . ../venv/bin/activate
+  workingDirectory: $(Build.SourcesDirectory)
+  displayName: Set up virtual environment
+
 - task: InstallSSHKey@0
   inputs:
     knownHostsEntry: github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==
@@ -42,16 +48,19 @@ steps:
     conda install -y -c conda-forge vsts-python-api conda-build
     python setup.py install
   displayName: Install nwb-extensions-smithy
-  
+  workingDirectory: $(Build.SourcesDirectory)
+
 - bash: |
     mkdir ~/.nwb-extensions-smithy
     echo $(GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token
     git config --global user.email "nwb-extensions-bot@gmail.com"
     git config --global user.name "NWB Extensions Bot"
   displayName: Setup Git and GitHub token
-  
+  workingDirectory: $(Build.SourcesDirectory)
+
 - bash: |
     git checkout master
     smithy_init_all
     git push https://$(GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
   displayName: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
+  workingDirectory: $(Build.SourcesDirectory)
