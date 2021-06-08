@@ -34,7 +34,7 @@ steps:
   displayName: Create Conda environment
 
 - bash: |
-    conda activate venv
+    source activate venv
     git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
     cd nwb-extensions-smithy
     python -m pip install --upgrade -r requirements.txt
@@ -50,7 +50,7 @@ steps:
   displayName: Setup Git and GitHub token
 
 - bash: |
-    conda activate venv
+    source activate venv
     git checkout master
     smithy_init_all
     git push https://$(GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
