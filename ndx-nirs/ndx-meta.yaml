@@ -1,9 +1,0 @@
-name: ndx-nirs
-version: 0.2.0
-src: https://github.com/agencyenterprise/ndx-nirs
-pip: https://pypi.org/project/ndx-nirs/
-license: BSD 3-Clause
-maintainers:
-  - sumner15
-  - dsleiter
-  - ribeirojose
