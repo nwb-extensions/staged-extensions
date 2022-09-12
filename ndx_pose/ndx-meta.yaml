@@ -1,0 +1,8 @@
+name: ndx-pose
+version: 0.1.1
+src: https://github.com/rly/ndx-pose
+pip: https://pypi.org/project/ndx-pose
+license: BSD
+maintainers:
+  - rly
+  - bendichter
