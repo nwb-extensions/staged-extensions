@@ -56,7 +56,7 @@ from ndx_sound.widgets import acoustic_waveform_widget
 acoustic_waveform_widget(nwb.stimulus["acoustic_stimulus"])
 ```
 
-![](acoustic_waveform_widget.png)
+![](https://github.com/catalystneuro/ndx-sound/blob/main/acoustic_waveform_widget.png)
 
 
 
