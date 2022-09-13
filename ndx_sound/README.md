@@ -46,7 +46,7 @@ from ndx_sound.widgets import plot_sound
 plot_sound(nwbfile.stimulus["acoustic_stimulus"])
 ```
 
-![](ndx_sound_plot.png)
+![](https://github.com/catalystneuro/ndx-sound/blob/main/ndx_sound_plot.png)
 
 Use `acoustic_waveform_widget` to include an Audio element that plays the sound.
 
