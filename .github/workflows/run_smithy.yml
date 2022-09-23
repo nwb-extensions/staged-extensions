@@ -4,16 +4,22 @@ on: push
 jobs:
   run-smithy:
     runs-on: ubuntu-latest
+    defaults:
+     run:
+       shell: bash -l {0}  # needed for conda environment to work
     steps:
 
     - uses: actions/checkout@v3
       with:
         submodules: 'recursive'
 
-    - name: Set up Python
-      uses: actions/setup-python@v3
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: '3.10'
+        auto-update-conda: true
+        auto-activate-base: true
+        activate-environment: true
+        python-version: "3.9"
 
     # - name: Install SSH key
     #   uses: webfactory/ssh-agent@v0.5.4
@@ -26,13 +32,14 @@ jobs:
 
     - name: Install NWB extensions smithy
       run: |
-        conda create --name smithy-env python=3.10 --yes
-        conda activate smithy-env
+        conda config --set always_yes yes --set changeps1 no
+        conda info
         git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
         cd nwb-extensions-smithy
         python -m pip install --upgrade -r requirements.txt
         conda install -y -c conda-forge vsts-python-api conda-build
         python -m pip install .
+        conda list
 
     - name: Set up Git
       run: |
