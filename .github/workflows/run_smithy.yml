@@ -1,5 +1,7 @@
 name: Run smithy
-on: push
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   run-smithy:
