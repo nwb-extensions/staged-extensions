@@ -50,6 +50,6 @@ jobs:
 
     - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
       run: |
-        git checkout master
+        git checkout main
         smithy_init_all
         git push https://${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }}@github.com/nwb-extensions/staged-extensions.git
