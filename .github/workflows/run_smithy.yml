@@ -44,13 +44,12 @@ jobs:
     - name: Set up Git
       run: |
         mkdir ~/.nwb-extensions-smithy
-        echo $(NWB_EXTENSIONS_BOT_GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token  # TODO improve security
+        echo ${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }} > ~/.nwb-extensions-smithy/github.token  # TODO improve security
         git config --global user.email "nwb-extensions-bot@gmail.com"
         git config --global user.name "NWB Extensions Bot"
 
     - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
       run: |
-        source activate smithy-env  # see if conda env transfers between steps
         git checkout master
         smithy_init_all
-        git push https://$(NWB_EXTENSIONS_BOT_GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
+        git push https://${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }}@github.com/nwb-extensions/staged-extensions.git
