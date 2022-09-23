@@ -1,0 +1,49 @@
+name: Run smithy
+on: push
+
+jobs:
+  run-smithy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.10'
+
+    - name: Install SSH key
+      uses: webfactory/ssh-agent@v0.5.4
+      with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Update SSH known hosts
+      run: |
+        echo "github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==" >> ~/.ssh/known_hosts
+
+    - name: Install NWB extensions smithy
+      run: |
+        conda create --name smithy-env python=3.10 --yes
+        source activate smithy-env
+        git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
+        cd nwb-extensions-smithy
+        python -m pip install --upgrade -r requirements.txt
+        conda install -y -c conda-forge vsts-python-api conda-build
+        python -m pip install .
+
+    - name: Set up Git
+      run: |
+        mkdir ~/.nwb-extensions-smithy
+        echo $(NWB_EXTENSIONS_BOT_GITHUB_TOKEN) > ~/.nwb-extensions-smithy/github.token  # TODO improve security
+        git config --global user.email "nwb-extensions-bot@gmail.com"
+        git config --global user.name "NWB Extensions Bot"
+
+    - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
+      run: |
+        source activate smithy-env  # see if conda env transfers between steps
+        git checkout master
+        smithy_init_all
+        git push https://$(NWB_EXTENSIONS_BOT_GITHUB_TOKEN)@github.com/nwb-extensions/staged-extensions.git
