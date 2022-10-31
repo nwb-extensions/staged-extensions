@@ -7,6 +7,57 @@ This extension allows for the storage of configuration options used by the [EXTR
 
 ## Usage
 
+
+### Python
+Install the extension from [PyPI](https://pypi.org/project/ndx-extract/)
+```shell
+pip install ndx-extract
+```
+Usage:
+```python
+from datetime import datetime
+from ndx_extract import EXTRACTSegmentation
+from pynwb import NWBFile, NWBHDF5IO
+
+# Create the NWBfile
+nwbfile = NWBFile(
+    session_description="The mouse in open exploration.",
+    identifier="Mouse5_Day3",
+    session_start_time=datetime.now().astimezone(),
+)
+# Create the processing module
+ophys_module = nwbfile.create_processing_module(
+    name="ophys",
+    description="optical physiology processed data",
+)
+# Create the segmentation object and define the configuration properties
+# The properties that can be defined are listed at spec/ndx-EXTRACT.extensions.yaml
+image_segmentation = EXTRACTSegmentation(
+            name="ImageSegmentation",
+            version="1.1.0",
+            preprocess=True,
+            trace_output_option="nonneg",
+)
+# Add this image segmentation to the processing module
+ophys_module.add(image_segmentation)
+
+# Writing the NWB file
+with NWBHDF5IO("image_segmentation.nwb", mode="w") as io:
+    io.write(nwbfile)
+
+# Reading the NWB file and accessing the segmentation parameters
+with NWBHDF5IO("image_segmentation.nwb", mode="r") as io:
+    nwbfile_in = io.read()
+    nwbfile_in.processing["ophys"].data_interfaces["ImageSegmentation"].version
+    nwbfile_in.processing["ophys"].data_interfaces["ImageSegmentation"].preprocess
+    nwbfile_in.processing["ophys"].data_interfaces["ImageSegmentation"].trace_output_option
+```
+
+Running the tests:
+```shell
+ python -m unittest src/pynwb/tests/test_extract.py
+```
+
 ### MATLAB
 install:
 ```matlab
