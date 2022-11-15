@@ -1,8 +1,0 @@
-name: ndx-sound
-version: 0.2.0
-src: https://github.com/catalystneuro/ndx-sound/
-pip: https://pypi.org/project/ndx-sound/
-license: BSD
-maintainers:
-  - weiglszonja
-  - bendichter
