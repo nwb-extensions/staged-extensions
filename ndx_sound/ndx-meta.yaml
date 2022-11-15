@@ -4,5 +4,5 @@ src: https://github.com/catalystneuro/ndx-sound/
 pip: https://pypi.org/project/ndx-sound/
 license: BSD
 maintainers:
-  - szonjaweigl
+  - weiglszonja
   - bendichter
