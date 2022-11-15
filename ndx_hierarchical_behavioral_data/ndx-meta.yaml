@@ -5,4 +5,4 @@ pip: https://pypi.org/project/ndx-hierarchical-behavioral-data/
 license: BSD
 maintainers:
   - bendichter
-  - luiz_tauffer
+  - luiztauffer
