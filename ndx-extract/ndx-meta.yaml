@@ -1,0 +1,8 @@
+name: ndx-extract
+version: 0.2.0
+src: https://github.com/catalystneuro/ndx-extract
+pip: https://pypi.org/project/ndx-extract/0.2.0/
+license: BSD
+maintainers:
+  - bendichter
+  - weiglszonja
