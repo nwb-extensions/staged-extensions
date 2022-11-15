@@ -34,12 +34,11 @@ jobs:
 
     - name: Install NWB extensions smithy
       run: |
-        conda config --set always_yes yes --set changeps1 no
         conda info
         git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
         cd nwb-extensions-smithy
         python -m pip install --upgrade -r requirements.txt
-        conda install -y -c conda-forge vsts-python-api conda-build
+        conda install --yes -c conda-forge vsts-python-api conda-build
         python -m pip install .
         conda list
 
