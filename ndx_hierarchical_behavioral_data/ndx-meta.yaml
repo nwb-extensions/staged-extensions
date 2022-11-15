@@ -1,8 +1,0 @@
-name: ndx-hierarchical-behavioral-data
-version: 0.1.1
-src: https://github.com/catalystneuro/ndx-hierarchical-behavioral-data
-pip: https://pypi.org/project/ndx-hierarchical-behavioral-data/
-license: BSD
-maintainers:
-  - bendichter
-  - luiztauffer
