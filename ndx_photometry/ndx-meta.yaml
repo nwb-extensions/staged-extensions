@@ -1,7 +1,0 @@
-name: ndx-photometry
-version: 0.1.0
-src: https://github.com/catalystneuro/ndx-photometry
-pip: https://pypi.org/project/ndx-photometry/
-license: BSD
-maintainers:
-  - bendichter
