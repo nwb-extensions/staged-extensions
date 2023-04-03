@@ -1,0 +1,8 @@
+name: ndx-multichannel-volume
+version: 0.1.0
+src: https://github.com/focolab/ndx-multichannel-volume
+pip: https://pypi.org/project/ndx-multichannel-volume/
+license: BSD-3
+maintainers: 
+  - dysprague
+
