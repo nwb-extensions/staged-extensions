@@ -1,13 +1,16 @@
 # ndx-multichannel-volume Extension for NWB
 
-Description of the extension
+This extension is to add support for volumetric multichannel images. This
+extends existing NWB functions for optophysiology imaging to allow for 
+3 dimensions and a flexible number of channels. There is additional support
+for adding metadata that is necessary for imaging in C. Elegans.
 
 ## Installation
 
 To install this package on Unix/macOS, run in command line
 python3 -m pip install --index-url https://pypi.org/simple/ --no-deps ndx-multichannel-volume
 
-On windwos, run 
+On windows, run 
 
 py -m pip install --index-url https://pypi.org/simple/ --no-deps ndx-multichannel-volume
 
@@ -45,9 +48,7 @@ VolumeSegmentation - contains segmentation masks for image volumes. There are op
 to use either a standard voxel_mask with XYZ information as well as a Cell ID label,
 or color_voxel_mask which has RGBW information as well as XYZ.
 
-```python
-
-```
+Please see https://github.com/focolab/ndx-multichannel-volume/blob/main/src/pynwb/create_NWB.ipynb
 
 ---
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).
