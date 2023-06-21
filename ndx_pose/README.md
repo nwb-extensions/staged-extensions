@@ -3,7 +3,7 @@
 [![PyPI version](https://badge.fury.io/py/ndx-pose.svg)](https://badge.fury.io/py/ndx-pose)
 
 ndx-pose is a standardized format for storing pose estimation data in NWB. It was developed initially to store the
-output of [DeepLabCut](http://www.mackenziemathislab.org/deeplabcut) in NWB, but is also designed to store the output
+output of [DeepLabCut](http://www.mackenziemathislab.org/deeplabcut) in NWB, and is designed to store the output
 of general pose estimation tools. Please post an issue or PR to suggest or add support for your favorite pose 
 estimation tool.
 
