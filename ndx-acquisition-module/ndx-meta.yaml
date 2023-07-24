@@ -1,8 +1,0 @@
-name: ndx-acquisition-module
-version: 0.1.2
-src: https://gitlab.com/fleischmann-lab/ndx/ndx-acquisition-module/
-pip: https://pypi.org/project/ndx-acquisition-module/
-license: BSD-3
-maintainers:
-  - tuanpham96 # github
-#  - tuanhpham # gitlab
