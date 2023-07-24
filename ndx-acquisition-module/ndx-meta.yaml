@@ -5,4 +5,4 @@ pip: https://pypi.org/project/ndx-acquisition-module/
 license: BSD-3
 maintainers:
   - tuanpham96 # github
-  - tuanhpham # gitlab
+#  - tuanhpham # gitlab
