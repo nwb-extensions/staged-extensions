@@ -1,0 +1,8 @@
+name: ndx-odor-metadata
+version: 0.1.1
+src: https://gitlab.com/fleischmann-lab/ndx/ndx-odor-metadata
+pip: https://pypi.org/project/ndx-odor-metadata/
+license: BSD-3
+maintainers:
+  - tuanpham96 # github
+#  - tuanhpham # gitlab
