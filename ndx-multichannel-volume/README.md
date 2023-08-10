@@ -48,7 +48,7 @@ VolumeSegmentation - contains segmentation masks for image volumes. There are op
 to use either a standard voxel_mask with XYZ information as well as a Cell ID label,
 or color_voxel_mask which has RGBW information as well as XYZ.
 
-Please see https://github.com/focolab/ndx-multichannel-volume/blob/main/src/pynwb/create_NWB.ipynb
+Please see https://github.com/focolab/ndx-multichannel-volume/blob/main/src/pynwb/create_NWB.ipynb for example code on how to use these new data types/classes
 
 ---
 This extension was created using [ndx-template](https://github.com/nwb-extensions/ndx-template).
