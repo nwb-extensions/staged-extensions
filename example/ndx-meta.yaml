@@ -1,5 +1,5 @@
 name: ndx-miniscope
-version: 0.1.4
+version: 0.1.0
 src: https://github.com/bendichter/ndx-miniscope
 pip: https://pypi.org/project/ndx-miniscope/
 license: BSD
