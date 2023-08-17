@@ -1,0 +1,8 @@
+name: ndx-whisk
+version: 0.1.0
+src: https://github.com/vncntprvst/ndx-whisk
+pip: https://pypi.org/project/ndx-whisk/
+license: BSD-3
+maintainers: 
+  - vncntprvst
+
