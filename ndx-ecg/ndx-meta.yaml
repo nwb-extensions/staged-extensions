@@ -1,0 +1,8 @@
+name: ndx-ecg
+version: 0.1.0
+src: https://github.com/Defense-Circuits-Lab/ndx_ecg
+pip: https://pypi.org/project/ndx-ecg/
+license: BSD 3-clause
+maintainers:
+  - Hamidreza-Alimohammadi
+
