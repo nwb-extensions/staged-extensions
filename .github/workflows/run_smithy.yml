@@ -1,0 +1,48 @@
+name: Run smithy
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run-smithy:
+    runs-on: ubuntu-latest
+    defaults:
+     run:
+       shell: bash -l {0}  # needed for conda environment to work
+    steps:
+
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'recursive'
+
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        auto-update-conda: true
+        auto-activate-base: true
+        activate-environment: true
+        python-version: "3.9"
+
+    - name: Install NWB extensions smithy
+      run: |
+        conda info
+        git clone https://github.com/nwb-extensions/nwb-extensions-smithy.git
+        cd nwb-extensions-smithy
+        python -m pip install --upgrade -r requirements.txt
+        conda install --yes -c conda-forge vsts-python-api conda-build
+        python -m pip install .
+        conda list
+
+    - name: Set up Git
+      run: |
+        mkdir ~/.nwb-extensions-smithy
+        echo ${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }} > ~/.nwb-extensions-smithy/github.token  # TODO improve security
+        git --version
+        git config --global user.email "nwb-extensions-bot@gmail.com"
+        git config --global user.name "NWB Extensions Bot"
+        git config --global init.defaultBranch main
+
+    - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
+      run: |
+        smithy_init_all
+        git push https://${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }}@github.com/nwb-extensions/staged-extensions.git
