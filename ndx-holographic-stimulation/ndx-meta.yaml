@@ -1,0 +1,8 @@
+name: ndx-holographic-stimulation
+version: 0.1.0
+src: https://github.com/catalystneuro/ndx-holographic-stimulation
+pip: https://pypi.org/project/ndx-holographic-stimulation/
+license: BSD-3
+maintainers: 
+  - alessandratrapani
+
