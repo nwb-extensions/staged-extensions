@@ -1,0 +1,8 @@
+name: ndx-depth-moseq
+version: 0.1.1
+src: https://github.com/catalystneuro/ndx-depth-moseq
+pip: https://pypi.org/project/ndx-depth-moseq/
+license: BSD-3
+maintainers:
+  - pauladkisson
+
