@@ -1,8 +1,0 @@
-name: ndx-bipolar-referencing
-version: 0.1.2
-src: https://github.com/ben-dichter-consulting/ndx-bipolar-referencing
-pip: https://pypi.org/project/ndx-bipolar-referencing/
-license: BSD
-maintainers:
-  - bendichter
-
