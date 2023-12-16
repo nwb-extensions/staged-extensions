@@ -1,5 +1,5 @@
 name: ndx-photostim
-version: 0.0.2
+version: 0.0.3
 src: https://github.com/histedlab/ndx-photostim
 pip: https://pypi.org/project/ndx-photostim
 license: BSD3
