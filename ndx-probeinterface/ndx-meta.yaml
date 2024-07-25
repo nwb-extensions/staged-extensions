@@ -1,8 +1,0 @@
-name: ndx-probeinterface
-version: 0.1.0
-src: https://github.com/SpikeInterface/ndx-probeinterface
-pip: https://pypi.org/project/ndx-probeinterface/
-license: MIT
-maintainers: 
-  - alejoe91
-  - khl02007
