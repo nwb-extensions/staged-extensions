@@ -1,7 +1,0 @@
-name: ndx-dbs
-version: 0.1.0
-src: https://github.com/Hamidreza-Alimohammadi/ndx-dbs
-pip: https://pypi.org/project/ndx-dbs/
-license: BSD 3-clause
-maintainers:
-  - Hamidreza-Alimohammadi
