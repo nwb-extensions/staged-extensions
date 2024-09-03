@@ -1,8 +1,0 @@
-name: ndx-ophys-devices
-version: 0.1.0
-src: https://github.com/catalystneuro/ndx-ophys-devices
-pip:
-license: BSD
-maintainers:
-  - alessandratrapani
-
