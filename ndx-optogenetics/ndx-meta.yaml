@@ -1,0 +1,9 @@
+name: ndx-optogenetics
+version: 0.0.1
+src: https://github.com/TheChymera/ndx-optogenetics
+pip: https://pypi.org/project/ndx-optogenetics/0.1.0/
+license: BSD
+maintainers:
+  - Horea Christian
+  - Ben Dichter
+
