@@ -1,0 +1,8 @@
+name: ndx-microscopy
+version: 0.1.0
+src: https://github.com/alessandratrapani/ndx-microscopy
+pip: https://pypi.org/project/ndx-microscopy/
+license: BSD-3
+maintainers:
+  - alessandratrapani
+  - codycbakerphd
