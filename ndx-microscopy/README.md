@@ -18,6 +18,11 @@ A Neurodata Without Borders (NWB) extension for storing microscopy data and asso
 - Imaging space definitions: 
     - `PlanarImagingSpace`
     - `VolumetricImagingSpace`
+- Illumination pattern classes:
+    - `IlluminationPattern`
+    - `LineScan`
+    - `PlaneAcquisition`
+    - `RandomAccessScan`
 - Support for 2D and 3D imaging: 
     - `PlanarMicroscopySeries`
     - `VolumetricMicroscopySeries`
@@ -192,6 +197,78 @@ classDiagram
     EmissionLightPath *-- Indicator : contains
 ```
 
+#### Illumination Pattern Components
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ffffff', 'primaryBorderColor': '#144E73', 'lineColor': '#D96F32'}}}%%
+
+classDiagram
+    direction TB
+
+    class IlluminationPattern {
+        <<NWBContainer>>
+        --------------------------------------
+        attributes
+        --------------------------------------
+        description : text, optional
+    }
+
+    class LineScan {
+        <<IlluminationPattern>>
+        --------------------------------------
+        attributes
+        --------------------------------------
+        scan_direction : text, optional
+        line_rate_in_Hz : float64, optional
+        dwell_time_in_s : float64, optional
+    }
+
+    class PlaneAcquisition {
+        <<IlluminationPattern>>
+        --------------------------------------
+        attributes
+        --------------------------------------
+        plane_thickness_in_um : float64, optional
+        illumination_angle_in_degrees : float64, optional
+        plane_rate_in_Hz : float64, optional
+    }
+
+    class RandomAccessScan {
+        <<IlluminationPattern>>
+        --------------------------------------
+        attributes
+        --------------------------------------
+        max_scan_points : numeric, optional
+        dwell_time_in_s : float64, optional
+        scanning_pattern : text, optional
+    }
+
+    class ImagingSpace {
+        <<NWBContainer>>
+        --------------------------------------
+        datasets
+        --------------------------------------
+        **description** : text
+        origin_coordinates : float64[3], optional
+        unit : text = "micrometers"
+        --------------------------------------
+        attributes
+        --------------------------------------
+        location : text, optional
+        reference_frame : text, optional
+        orientation : text, optional
+        --------------------------------------
+        groups
+        --------------------------------------
+        **illumination_pattern** : IlluminationPattern
+    }
+
+    IlluminationPattern <|-- LineScan : extends
+    IlluminationPattern <|-- PlaneAcquisition : extends
+    IlluminationPattern <|-- RandomAccessScan : extends
+    ImagingSpace *-- IlluminationPattern : contains
+```
+
 #### Microscopy Series and Imaging Space Components
 
 ```mermaid
@@ -256,6 +333,10 @@ classDiagram
         location : text, optional
         reference_frame : text, optional
         orientation : text, optional
+        --------------------------------------
+        groups
+        --------------------------------------
+        **illumination_pattern** : IlluminationPattern
     }
 
     class PlanarImagingSpace {
@@ -263,7 +344,7 @@ classDiagram
         --------------------------------------
         datasets
         --------------------------------------
-        grid_spacing_in_um : float64[2], optional
+        pixel_size_in_um : float64[2], optional
     }
 
     class VolumetricImagingSpace {
@@ -271,7 +352,7 @@ classDiagram
         --------------------------------------
         datasets
         --------------------------------------
-        grid_spacing_in_um : float64[3], optional
+        voxel_size_in_um : float64[3], optional
     }
 
     class Microscope {
@@ -280,6 +361,7 @@ classDiagram
         attributes
         --------------------------------------
         model : text, optional
+        technique : text, optional
     }
 
     MicroscopySeries <|-- PlanarMicroscopySeries : extends
