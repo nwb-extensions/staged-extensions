@@ -1,8 +1,0 @@
-name: ndx-microscopy
-version: 0.2.1
-src: https://github.com/catalystneuro/ndx-microscopy
-pip: https://pypi.org/project/ndx-microscopy/
-license: MIT
-maintainers:
-  - alessandratrapani
-  - codycbakerphd
