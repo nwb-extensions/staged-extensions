@@ -22,6 +22,9 @@ to find information about your extension and how to install and use it.
     git clone https://github.com/<your-github-username>/staged-extensions.git
     ```
 
+2. If you have an existing fork, please remove all folders in `staged-extensions`
+that are not named "example", e.g., from previously staged extensions.
+
 2. Copy the folder `staged-extensions/example` to a new folder with the name of your
 extension.
 
