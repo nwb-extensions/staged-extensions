@@ -4,5 +4,5 @@ src: https://github.com/nehatk17/ndx-multisubjects
 pip: 
 license: BSD
 maintainers:
-  - rly, nehatk17
-
+  - rly
+  - nehatk17
