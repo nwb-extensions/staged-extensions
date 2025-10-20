@@ -1,0 +1,9 @@
+name: ndx-binned-spikes
+version: 0.3.1
+src: https://github.com/catalystneuro/ndx-binned-spikes
+pip: https://pypi.org/project/ndx-binned-spikes/
+license: BSD
+maintainers:
+  - h-mayorquin
+
+
