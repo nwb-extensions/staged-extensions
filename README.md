@@ -2,6 +2,11 @@
 This repo is a place to submit NWB extensions for registration in the official
 [Neurodata Without Borders Extensions Catalog](https://github.com/nwb-extensions).
 
+If the extension is already registered in the Extensions Catalog, please modify the
+corresponding record repo, e.g.,
+https://github.com/nwb-extensions/ndx-myextension-record where "ndx-myextension" is
+the name of your extension.
+
 ## Registering an extension
 
 To register an extension, you need to have a GitHub account and git installed on your
