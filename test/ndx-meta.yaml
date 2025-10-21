@@ -1,0 +1,7 @@
+name: ndx-test
+version: 0.1.0
+src: https://github.com/rly/ndx-test/
+pip: https://pypi.org/project/ndx-test/
+license: BSD
+maintainers:
+  - rly
