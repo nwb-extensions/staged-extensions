@@ -1,0 +1,8 @@
+name: ndx-wearables
+version: 0.2.0
+src: https://github.com/BCM-Neurosurgery/ndx-wearables
+pip: https://pypi.org/project/ndx-wearables/
+license: BSD
+maintainers:
+  - TomekFraczek
+  - erikjohnson24
