@@ -1,7 +1,0 @@
-name: ndx-fscv
-version: 0.1.0
-src: https://github.com/catalystneuro/ndx-fscv
-pip: https://pypi.org/project/ndx-fscv/
-license: MIT
-maintainers:
-  - weiglszonja
