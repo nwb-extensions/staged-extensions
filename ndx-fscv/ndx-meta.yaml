@@ -4,5 +4,5 @@ src: https://github.com/catalystneuro/ndx-fscv
 pip: https://pypi.org/project/ndx-fscv/
 license: MIT
 maintainers:
-  - szonjaweigl
+  - weiglszonja
 
