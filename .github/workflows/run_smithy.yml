@@ -42,7 +42,8 @@ jobs:
         git config --global user.name "NWB Extensions Bot"
         git config --global init.defaultBranch main
 
-    - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub, remove staged extensions
-      run: |
-        smithy_init_all
-        git push https://${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }}@github.com/nwb-extensions/staged-extensions.git
+    - name: Create catalog record repo for all staged extensions in repo, push new repo to GitHub
+      run: smithy_init_all
+
+    - name: Remove staged extensions
+      run: git push https://${{ secrets.NWB_EXTENSIONS_BOT_GITHUB_TOKEN }}@github.com/nwb-extensions/staged-extensions.git
