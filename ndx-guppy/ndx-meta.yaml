@@ -1,0 +1,7 @@
+name: ndx-guppy
+version: 0.1.0
+src: https://github.com/catalystneuro/ndx-guppy
+pip: https://pypi.org/project/ndx-guppy/
+license: BSD-3-Clause
+maintainers:
+  - pauladkisson
