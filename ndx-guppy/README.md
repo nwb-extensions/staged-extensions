@@ -17,9 +17,9 @@ The design turns GuPPy's organizing features into structured, queryable NWB feat
 - **trace_type** is a closed *category* (`control_fit` / `dff` / `z_score`), so it is a plain enumerated text
   attribute stamped directly on each object.
 - **event** is the one *unbounded* axis (you can align to arbitrarily many behavioral events), so the
-  event-bearing products (`GuppyPSTH`, `GuppyPeakAUC`, `GuppyCrossCorrelation`) emit **one object per
-  condition** and concatenate every event's trials inside it — keeping the object count independent of how
-  many events a session has.
+  event-bearing products (`GuppyPSTH`, `GuppyPeakAUC`, `GuppyCrossCorrelation`, `GuppyPSTHSignificance`)
+  emit **one object per condition** and concatenate every event's trials inside it — keeping the object
+  count independent of how many events a session has.
 
 Cross-extension dependencies are quarantined: products reference ndx-guppy's own registry tables, and any
 outward link to the acquisition `FiberPhotometryTable` or to a behavioral-events object is an **optional**
@@ -39,6 +39,9 @@ column on a registry. A GuPPy file can therefore stand alone or be fully wired t
   `port_entries`). A slim registry: the `event_name` plus an optional ragged `events` DTR selecting this
   event type's occurrence rows in the merged `pynwb.event.EventsTable` (in `nwbfile.events`). The events link
   is populated at conversion time by a converter that merges every event type into one `EventsTable`.
+  A GuPPy session run in **spontaneous mode** aligns to its own detected transients instead of to external
+  TTLs, and those trains are per recording site, so such an event contributes one row per
+  (metric, recording site), each selecting its own site's occurrences.
 
 ### Derived traces
 
@@ -69,11 +72,32 @@ column on a registry. A GuPPy file can therefore stand alone or be fully wired t
   within each peak window, so each per-trial metric is a `(num_windows, num_trials)` matrix (per-trial `event`),
   each mean metric is `(num_windows, num_events)` (`summary_event`), and the optional per-bin metrics carry a
   `bin_event` reference.
+- **`GuppyPSTHSignificance`** (extends `NWBDataInterface`) — bootstrap significance of a baseline-corrected
+  PSTH for one **(recording_site, trace_type) condition**, concatenated across comparisons: `estimate`,
+  `confidence_interval_lower`/`_upper` and a boolean `significant`, each of shape
+  `(num_samples, num_comparisons)`, with a per-comparison `event` reference. An object holds either the
+  tests against zero or the event-versus-event comparisons, the latter adding `event_b` and `num_trials_b`
+  — which is what tells the two apart.
 
 - **`GuppyValidSignalIntervals`** (extends `TimeIntervals`) — the `[start, stop]` windows GuPPy retained as
   valid signal (not removed as artifacts) during preprocessing, one row per interval with a `recording_site`
   `DynamicTableRegion` into `GuppyRecordingSitesTable`. The removal method is recorded once on
   `GuppyParameters.artifacts_removal_method`.
+- **`GuppyTonicEpochs`** (extends `TimeIntervals`) — the mean level of a normalized trace within each
+  user-defined tonic epoch window, one row per (recording_site, epoch, trace_type); columns
+  `recording_site`, `label`, `trace_type`, `mean`. The windows are defined per recording site, since
+  different sites can see a drug at different times.
+- **`GuppyBinnedMetrics`** (extends `TimeIntervals`) — the whole session reduced to fixed-width time bins,
+  one row per (recording_site, bin, trace_type); columns `recording_site`, `trace_type`, `mean`,
+  `transient_count`, `n_samples`. The bin width is recorded once on `GuppyParameters.binned_metrics_width`.
+- **`GuppyBinnedCovariates`** (extends `TimeIntervals`) — a behavioral covariate, a variable scored outside
+  the rig, averaged onto those same bins, one row per (recording_site, bin, covariate); columns
+  `recording_site`, `covariate`, `mean`, `n_samples`. The `covariate` column is an **object reference** to
+  the `TimeSeries` holding that covariate's scores, which is its identity — there is no covariate registry.
+- **`GuppyCovariateCorrelations`** (extends `DynamicTable`) — each covariate correlated against each per-bin
+  metric, one row per (recording_site, trace_type, metric, covariate); columns `pearson_r`, `spearman_rho`,
+  `n_bins`. The coefficients are descriptive: successive bins of both series are autocorrelated, so GuPPy
+  reports no p-value and one must not be derived from these columns.
 
 ### Parameters
 
@@ -257,6 +281,36 @@ classDiagram
         DynamicTableRegion recording_site
     }
 
+    class GuppyTonicEpochs {
+        <<ndx-guppy>>
+        TimeIntervals
+        --
+        DynamicTableRegion recording_site
+        VectorData label, trace_type, mean
+    }
+
+    class GuppyBinnedMetrics {
+        <<ndx-guppy>>
+        TimeIntervals
+        --
+        DynamicTableRegion recording_site
+        VectorData trace_type, mean, transient_count, n_samples
+    }
+    class GuppyBinnedCovariates {
+        <<ndx-guppy>>
+        TimeIntervals
+        --
+        DynamicTableRegion recording_site
+        VectorData covariate (object reference), mean, n_samples
+    }
+    class GuppyCovariateCorrelations {
+        <<ndx-guppy>>
+        --
+        DynamicTableRegion recording_site
+        VectorData trace_type, metric, covariate (object reference)
+        VectorData pearson_r, spearman_rho, n_bins
+    }
+
     class GuppyTransientsTable {
         <<ndx-guppy>>
         --
@@ -298,6 +352,15 @@ classDiagram
         dataset peak_positive (num_windows, num_trials)
         dataset mean_peak_positive (num_windows, num_events)
     }
+    class GuppyPSTHSignificance {
+        <<ndx-guppy>>
+        --
+        attribute description, trace_type, unit : text
+        DynamicTableRegion recording_site
+        DynamicTableRegion event, event_b
+        dataset estimate (num_samples, num_comparisons)
+        dataset significant (num_samples, num_comparisons)
+    }
     class GuppyParameters {
         <<ndx-guppy>>
         LabMetaData
@@ -312,7 +375,15 @@ classDiagram
     GuppyCrossCorrelation ..> GuppyEventsTable : event
     GuppyPeakAUC ..> GuppyRecordingSitesTable : recording_site
     GuppyPeakAUC ..> GuppyEventsTable : event
+    GuppyPSTHSignificance ..> GuppyRecordingSitesTable : recording_site
+    GuppyPSTHSignificance ..> GuppyEventsTable : event, event_b
     GuppyValidSignalIntervals ..> GuppyRecordingSitesTable : recording_site
+    GuppyTonicEpochs ..> GuppyRecordingSitesTable : recording_site
+    GuppyBinnedMetrics ..> GuppyRecordingSitesTable : recording_site
+    GuppyBinnedCovariates ..> GuppyRecordingSitesTable : recording_site
+    GuppyBinnedCovariates ..> TimeSeries : covariate (object reference)
+    GuppyCovariateCorrelations ..> GuppyRecordingSitesTable : recording_site
+    GuppyCovariateCorrelations ..> TimeSeries : covariate (object reference)
     GuppyRecordingSitesTable ..> FiberPhotometryTable : optional outward link (ragged)
     GuppyEventsTable ..> EventsTable : optional outward link (ragged)
 ```
