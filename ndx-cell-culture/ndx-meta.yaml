@@ -1,0 +1,7 @@
+name: ndx-cell-culture
+version: 1.0.0
+src: https://github.com/braingeneers/ndx-cell-culture
+pip: https://pypi.org/project/ndx-cell-culture/
+license: BSD-3-Clause
+maintainers:
+  - davidparks21
