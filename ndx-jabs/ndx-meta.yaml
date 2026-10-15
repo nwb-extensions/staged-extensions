@@ -1,0 +1,8 @@
+name: ndx-jabs
+version: 0.3.0
+src: https://github.com/KumarLabJax/ndx-jabs
+pip: https://pypi.org/project/ndx-jabs/
+license: MIT
+maintainers:
+  - gbeane
+  - bergsalex
