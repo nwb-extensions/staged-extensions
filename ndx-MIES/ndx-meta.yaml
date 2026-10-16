@@ -1,0 +1,6 @@
+name: ndx-MIES
+version: 0.1.0
+src: https://github.com/t-b/ndx-MIES
+license: BSD
+maintainers:
+  - t-b
